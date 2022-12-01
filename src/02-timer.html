@@ -5,13 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown timer</title>
     <link rel="stylesheet" href="css/common.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .goback-link {
+        margin-left: 0px;
+        text-decoration: none;
+        color: black;
+      }
+
+      button {
+        padding: 1rem 3rem;
+        border: 1px solid lightgrey;
+        border-radius: 10px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem; 
+        font-weight: bold;
+      }
+
+      .timer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        gap: 2rem;
+      }
+
+      .date-input-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .field {
+        margin-top: 1rem;
+        font-family: 'Poppins';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      input {
+        padding: 1rem;
+        border-radius: 5px;
+        margin-right: 3rem;
+        font-size: 1rem;
+      }
+
+      h2 {
+        margin-top: 15rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+    </style>
   </head>
   <body>
-    <p><a href="index.html">Go back</a></p>
-
+    <p><a class="goback-link" href="index.html"><b><<</b> Go back</a></p>
+    <h2>Select a future date and press the start button to start the countdown!</h2>
+  <div class="date-input-wrap">
     <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
-
+    <button type="button" data-start>START</button>
+  </div>
     <div class="timer">
       <div class="field">
         <span class="value" data-days>00</span>
@@ -29,8 +91,6 @@
         <span class="value" data-seconds>00</span>
         <span class="label">Seconds</span>
       </div>
-    </div>
-
     <script src="js/02-timer.js" type="module"></script>
   </body>
 </html>
