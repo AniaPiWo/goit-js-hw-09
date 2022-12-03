@@ -3,6 +3,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
 
 const startBtn = document.querySelector('[data-start]');
+const input = document.querySelector('input');
 const dataDays = document.querySelector('[data-days]');
 const dataHours = document.querySelector('[data-hours]');
 const dataMinutes = document.querySelector('[data-minutes]');
@@ -55,7 +56,10 @@ const calendar = flatpickr('#datetime-picker', options);
 
 function start() {
     const startTime = selectedDate;
-  
+
+    startBtn.disabled = true;
+    input.disabled = true;
+   
     intervalId = setInterval(() => {
         const currentTime = Date.now();
         const deltaTime = startTime - currentTime;
@@ -64,10 +68,10 @@ function start() {
         if (deltaTime < 0) {
             clearInterval(intervalId);
             return;
-        }
-  
-        startBtn.disabled = true;
-  
+        }     
+
+        onclick  = (event) => {Notiflix.Notify.warning('The counter is running. Refresh page to enter the new date!') };
+        
         updateTimer({ days, hours, minutes, seconds });
     }, 1000);
 };
@@ -83,3 +87,4 @@ function addLeadingZero(value) {
     return String(value).padStart(2, '0');
 };
   
+
