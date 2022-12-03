@@ -1,6 +1,9 @@
 import Notiflix from 'notiflix';
 
 const form = document.querySelector('.form');
+const startBtn = document.querySelector('button');
+
+startBtn.disabled = false;
 
 form.addEventListener('submit', onSubmit);
 
@@ -22,10 +25,16 @@ function onSubmit(number) {
 
     delay += step;
   }
+
+  number.currentTarget.reset();
 }
 
 function createPromise(position, delay) {
+
+  startBtn.disabled = true;
+
   return new Promise((resolve, reject) => {
+
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
       if (shouldResolve) {
@@ -35,4 +44,5 @@ function createPromise(position, delay) {
       }
     }, delay);
   })
+
 };
