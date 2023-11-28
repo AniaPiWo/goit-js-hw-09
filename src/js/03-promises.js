@@ -31,8 +31,7 @@ form.addEventListener('submit', async e => {
   for (let i = 1; i <= amount; i++) {
     try {
       const position = i;
-      const timer = delay + step * i;
-      const result = await createPromise(position, timer);
+      const result = await createPromise(position, delay);
 
       Notify.success(
         `✅ Fulfilled promise ${result.position} in ${result.delay}ms`
