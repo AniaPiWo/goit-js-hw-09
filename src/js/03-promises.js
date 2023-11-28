@@ -34,11 +34,11 @@ form.addEventListener('submit', async e => {
       const result = await createPromise(position, delay);
 
       Notify.success(
-        `✅ Fulfilled promise ${result.position} in ${result.delay}ms`
+        `Fulfilled promise ${result.position} in ${result.delay}ms`
       );
     } catch (error) {
       Notify.failure(
-        `❌ Rejected promise ${error.position} in ${error.delay}ms`
+        `Rejected promise ${error.position} in ${error.delay}ms`
       );
     }
   }
